@@ -4,246 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
-    <style>
-        body{
-            font-family: Arial, sans-serif;
-            font-size: 1.15rem;
-            margin: 0;
-        }
-        p{
-            text-align: justify;
-        }
-
-        nav{
-            display: flex;
-            width: 100%;
-            align-items: center;
-            justify-content: center;
-            background-color: white;
-            border-bottom: solid 1px #d0d7de;
-            position: fixed;
-        }
-        .navbar{
-            list-style: none;
-            color: black;
-        }
-        .navbar a{
-            text-decoration: none;
-            color: black;
-        }
-        #navbar{
-            display: flex;
-            gap: 2rem;
-        }
-        main{
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-            margin-left: 150px;
-            margin-right: 150px;
-            padding: 3rem;
-        }
-        section{
-            border-top: solid 1px #d0d7de;
-            padding-top: 3rem;
-            margin-bottom: 3rem;
-        }
-        #tailbar{
-            margin-right: 50px;
-        }
-        .button{
-            background-color: #0b5cad;
-            text-align: center;
-            text-decoration: none;
-            color: white;
-            border: none;
-            width: 9.5rem;
-            padding: 0.8rem;
-            border-radius: 0.5rem;
-        }
-        button{
-            background-color: #0b5cad;
-            font-size:medium;
-            color: white;
-            border: none;
-            width: 7rem;
-            padding: 0.8rem;
-            margin-top: 1rem;
-            border-radius: 0.5rem;
-            cursor: pointer;
-        }
-        .tags{
-            list-style: none;
-            display: flex;
-            margin-top: 2rem;
-            gap: 1rem;
-            padding: 0;
-        }
-        .tags-item{
-            padding: 0.3rem 0.6rem 0.4rem 0.6rem;
-            background-color: #f6f8fa;
-            border: solid 1px #d0d7de;
-            border-radius: 2rem;
-        }
-        /* aboutme */
-        #aboutme{
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            gap: 0.75rem;
-            height: 50vh;
-            width: 50vw;
-        }
-        #aboutme h1 {
-            margin: 0;
-        }
-        #aboutme p {
-            margin-bottom: 1rem;
-        }
-        /* skills section */
-        #skills-content{
-            display: flex;
-            width: 100%;
-            gap: 6rem;
-        }
-        /* projects section */
-        #project-content{
-            display: flex;
-            gap: 4rem;
-        }
-        article{
-            width: 100%;
-            border: solid 1px #d0d7de;
-            border-radius: 1rem;
-
-        }
-        .project-img{
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            border-radius: 14px 14px 0 0;
-        }
-        .project-desc{
-            margin: 1rem
-        }
-        .project-desc a{
-            color: #0b5cad;
-        }
-        /* awards section */
-        #awards-content{
-            width: 100%;
-            display: flex;
-            align-items: center;
-            gap: 3rem;
-            border: solid 1px #d0d7de;
-            border-radius: 1rem;
-        }
-        #awards-img{
-            display: block;
-            width: 400px;
-            object-fit: cover;
-            border-radius: 14px 0 0 14px;
-        }
-        /* hobby section */
-        .number{
-            font-size: 50px;
-            font-weight: bold;
-            margin: 0;
-            color:#0b5cad;
-        }
-        .hobby-volleyball{
-            display: grid;
-            grid-template-columns: 1.5fr 2fr 1fr;
-            grid-template-rows: 200px 200px;
-            gap: 1rem;
-        }
-        .hobby-volleyball img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            border-radius: 0.75rem;
-        }
-        .volleyball-desc{
-            grid-row: span 2;
-            align-self: center;
-            margin-right: 2rem;
-        }
-        .hobby-img-main{
-            grid-row: span 2;
-        }
-        .hobby-piano{
-            display: grid;
-            grid-template-columns: 1fr 2fr 1.5fr;
-            grid-template-rows: 200px 200px;
-            gap: 1rem;
-            margin-top: 4rem;
-        }
-        .hobby-piano img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            border-radius: 0.75rem;
-        }
-        .piano-desc{
-            grid-row: span 2;
-            align-self: center;
-            margin-left: 2rem;
-        }
-        /* form section */
-        form{
-            width: 500px;
-            display: flex;
-            flex-direction: column;
-            margin-top: 2rem;
-            gap: 1rem;
-        }
-        form p{
-            margin-bottom: 0;
-        }
-        .form-radio{
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-        }
-        .form-radio label{
-            margin-right: 1rem;
-            margin-left: 5px;
-        }
-        label input{
-            width: 100%;
-        }
-        input {
-            height: 1.5rem;
-        }
-        select{
-            width: 10vw;
-        }
-        footer{
-            display: flex;
-            padding: 0 200px 0 200px;
-            border-top: solid 1px #d0d7de;
-            justify-content: space-between;
-        }
-        #footer-link{
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-        }
-
-    </style>
+    <link rel="stylesheet" href="./styles.css"/>
 </head>
 <body>
     <header>
         <nav>
             <ul id="navbar">
-                <li class="navbar"><a href="#aboutme">Миний тухай</a></li>
-                <li class="navbar"><a href="#projects">Бүтээлүүд</a></li>
-                <li class="navbar"><a href="#experience">Дадлага, туршлага</a></li>
-                <li class="navbar"><a href="#hobby">Хобби</a></li>
-                <li class="navbar"><a href="#form">Форм</a></li>
+                <li><a href="#aboutme">Миний тухай</a></li>
+                <li class="navbar-extra"><a href="#projects">Бүтээлүүд</a></li>
+                <li class="navbar-extra"><a href="#experience">Дадлага, туршлага</a></li>
+                <li class="navbar-extra"><a href="#hobby">Хобби</a></li>
+                <li class="navbar-extra"><a href="#form">Форм</a></li>
             </ul>
+            <button id="theme" onclick="theme()">Light/Dark</button>
         </nav>
     </header>
     <main>
@@ -331,6 +104,15 @@
                         <a href="https://proshop-ecomm.vercel.app/" target="_blank">Сайт үзэх -></a>
                     </div>
                 </article>
+                <article>
+                    <img class="project-img" src="./img/anandkhujirt.png" alt="Sanatorium booking system">
+                    <div class="project-desc">
+                        <h3>Booking system</h3>
+                        <p>Сувиллын захиалгын систем</p>
+                        <p>Next.js, Supabase</p>
+                        <a href="https://anandkhujirt.vercel.app/" target="_blank">Сайт үзэх -></a>
+                    </div>
+                </article>
             </div>
         </section>
         <!-- Дадлагын хэсэг -->
@@ -389,15 +171,15 @@
                 <img class="hobby-img" src="./img/voll3.jpeg" alt="Тоглолтын агшин">
             </div>
             <div class="hobby-piano">
-                <img class="hobby-img" src="./img/pianist.jpeg" alt="Ryuichi sakamoto зураг">
-                <img class="hobby-img-main" src="./img/me.jpeg" alt="Өөрийн зураг">
                 <div class="piano-desc">
                     <p class="number">02</p>
                     <h3>Төгөлдөр хуур</h3>
                     <p>Бага ангиасаа сонирхож эхэлсэн ба Merry christmas Mr. Lawrence, Für Elise зэрэг аяуудыг тоглох дуртай.</p>
                     <p>Дуртай зохиолч: Ryuichi Sakamoto</p>
                 </div>
+                <img class="hobby-img-main" src="./img/me.jpeg" alt="Өөрийн зураг">
                 <img class="hobby-img" src="./img/notes.jpeg" alt="Хөгжмийн нот">
+                <img class="hobby-img" src="./img/pianist.jpeg" alt="Ryuichi sakamoto зураг">
             </div>
         </section>
 
@@ -465,5 +247,11 @@
             <a href="https://www.facebook.com/profile.php?id=61588449451426" target="_blank">Facebook</a>
         </div> 
     </footer>
+    <script>
+        function theme(){
+            let element = document.body;
+            element.classList.toggle("dark-mode");
+        }
+    </script>
 </body>
 </html>

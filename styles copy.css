@@ -1,0 +1,356 @@
+:root{
+    --color-bg: white;
+    --color-bg-mute: #f6f8fa;
+    --color-text: black;
+
+}
+.dark-mode{
+    --color-bg: black;
+    --color-bg-mute: #272728;
+    --color-text: white;
+}
+body{
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    margin: 0;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+}
+p{
+    text-align: justify;
+}
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 7%;
+    border-bottom: solid 1px #d0d7de;
+    background-color: var(--color-bg);
+    flex-wrap: wrap;
+}
+nav{
+    display: flex;
+    /* flex: 1; */
+    margin: 0 13% 0 13%;
+    align-items: center;
+    justify-content: space-between;
+    /* background-color: var(--color-bg); */
+    color: var(--color-text);
+    /* border-bottom: solid 1px #d0d7de; */
+    list-style: none;
+    color: var(--color-bg);
+}
+nav a{
+    text-decoration: none;
+    color: var(--color-text);
+}
+#theme{
+    background: none;
+    color: var(--color-text);
+}#theme:hover{
+    color: #0b5cad;
+}
+#navbar{
+    display: flex;
+    padding: 0;
+    gap: 2rem;
+}
+#navbar a:hover{
+    color: #0b5cad;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding: 3%;
+}
+section{
+    border-top: solid 1px #d0d7de;
+    padding-top: 3rem;
+    margin-bottom: 3rem;
+}
+#tailbar{
+    margin-right: 50px;
+}
+.button{
+    background-color: #0b5cad;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    border: none;
+    width: 9.5rem;
+    padding: 0.8rem;
+    border-radius: 0.5rem;
+}
+button{
+    background-color: #0b5cad;
+    font-size: inherit;
+    font-family: inherit;
+    color: white;
+    border: none;
+    width: 7rem;
+    padding: 0.8rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+.tags{
+    list-style: none;
+    display: flex;
+    margin-top: 2rem;
+    gap: 1rem;
+    padding: 0;
+    color: var(--color-text);
+}
+.tags-item{
+    padding: 0.3rem 0.6rem 0.4rem 0.6rem;
+    background-color: var(--color-bg-mute);
+    color: var(--color-text);
+    border: solid 1px #d0d7de;
+    border-radius: 2rem;
+    align-self: flex-start;
+}
+/* aboutme */
+#aboutme{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.75rem;
+    height: 50vh;
+    width: 50vw;
+    border: none;
+}
+#aboutme h1 {
+    margin: 0;
+}
+#aboutme p {
+    margin-bottom: 1rem;
+}
+/* skills section */
+#skills-content{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 100%;
+    gap: 6%;
+}
+/* projects section */
+#project-content{
+    display: grid;
+    grid-template-columns: repeat(4, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+#project-content p{
+    font-size: 15px;
+}
+article{
+    width: 100%;
+    border: solid 1px #d0d7de;
+    border-radius: 1rem;
+
+}
+.project-img{
+    display: flex;
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 14px 14px 0 0;
+}
+.project-desc{
+    margin: 1rem;
+}
+.project-desc a{
+    color: #0b5cad;
+}
+/* awards section */
+#awards-content{
+    display: flex;
+    width: 100%;
+    gap: 5%;
+    border: solid 1px #d0d7de;
+    border-radius: 1rem;
+}
+#tailbar{
+    align-self: center;
+}
+#awards-img{
+    display: block;
+    height: 100%;
+    width: 100%;
+    object-fit: fit;
+    border-radius: 14px 0 0 14px;
+}
+/* hobby section */
+.number{
+    font-size: 50px;
+    font-weight: bold;
+    margin: 0;
+    color:#0b5cad;
+}
+.hobby-volleyball{
+    display: grid;
+    grid-template-columns: 1.5fr 2fr 1fr;
+    grid-template-rows: 200px 200px;
+    gap: 1rem;
+}
+.hobby-volleyball img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 0.75rem;
+}
+.volleyball-desc{
+    grid-row: span 2;
+    align-self: center;
+    margin-right: 2rem;
+}
+.hobby-img-main{
+    grid-column: 2;
+    grid-row: 1 / span 2;
+}
+.hobby-piano{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1.5fr;
+    grid-template-rows: 200px 200px;
+    gap: 1rem;
+    margin-top: 4rem;
+}
+.hobby-piano img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 0.75rem;
+}
+.hobby-piano .hobby-img{
+    grid-column: 1;
+}
+.piano-desc{
+    grid-column: 3;
+    grid-row: 1 / span 2;
+    align-self: center;
+    margin-left: 2rem;
+}
+/* responsive */
+/* tablet */
+@media(max-width: 1280px){
+    #project-content{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    main{
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    nav{
+        margin: 0 8% 0 8%;
+    }
+    #skills-content{
+        /* grid-template-columns: repeat(2, 1fr); */
+        gap: 0;
+    }
+}
+/* phone */
+@media(max-width: 780px){
+    body{
+        font-size: 12px;
+    }
+    header{
+        height: 6%;
+    }
+    #aboutme{
+        width: 100%;
+    }
+    #project-content{
+        grid-template-columns: repeat(1, 1fr);
+        gap: 2rem;
+    }
+    main{
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    #skills-content{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .hobby-volleyball, .hobby-piano{
+        grid-template-columns: repeat(3, 1fr);   
+        grid-template-rows: auto;                
+    }
+    .volleyball-desc, .piano-desc{
+        grid-column: 1 / span 3;
+        grid-row: 1;
+        margin: 0;
+    }
+    .hobby-volleyball img,
+    .hobby-piano img,
+    .hobby-img-main,
+    .hobby-piano .hobby-img{
+        grid-column: auto;                      
+        grid-row: 2;
+        height: 30vh;
+    }
+    .button{
+        width: 30%;
+    }
+    #tailbar{
+        margin-right: 0;
+    }
+    .navbar-extra{
+        display: none;
+    }
+}
+@media(max-width: 1040px){
+    #awards-content{
+        flex-wrap: wrap;
+        border: none;
+    }
+    #awards-img{
+        width: 100%;
+        height: 30vh;
+        border-radius: 14px 14px 14px 14px;
+    }
+}
+/* form section */
+form{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+    gap: 1rem;
+}
+form p{
+    margin-bottom: 0;
+}
+.form-radio{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.form-radio label{
+    margin-right: 1rem;
+    margin-left: 5px;
+}
+label input{
+    width: 100%;
+}
+input {
+    height: 1.5rem;
+}
+select{
+    width: 9rem;
+}
+footer{
+    display: flex;
+    padding: 0 13% 0 13%;
+    border-top: solid 1px #d0d7de;
+    justify-content: space-between;
+}
+#footer-link{
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+
