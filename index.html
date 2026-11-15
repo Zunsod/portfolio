@@ -94,6 +94,32 @@
                 </div>
             </div>
         </section>
+
+        <!-- Одоо сурч байгаа зүйлс хэсэг -->
+        <section id="learning">
+            <div class="learning-left">
+                <h2>Одоо сурч байгаа</h2>
+                <p id="learning-desc">Дараагийн сурах зүйлсийн жагсаалт. Дуусгасан бол тэмдэглэнэ.</p>
+                <p><strong id="learn-done">0</strong> / <span id="learn-total">0</span> дууссан</p>
+            </div>
+            <div class="learning-right">
+                <!-- input skills want to learn -->
+                <form id="learning-form">
+                    <input  id="learning-input" 
+                            type="text" 
+                            placeholder="Жишээ: Typescript" 
+                            autocomplete="off" 
+                            maxlength="40"
+                            required
+                    >
+                    <button class="button" type="submit">+ <span>Нэмэх</span></button>
+                </form>
+                <!-- showing items -->
+                <ul id="learn-list">
+                </ul>
+            </div>
+        </section>
+
         <!-- Бүтээлүүд хэсэг -->
         <section id="projects">
             <h2>Бүтээлүүд</h2>
@@ -253,7 +279,7 @@
             <h2>
                 Судалгааны форм
             </h2>
-            <form>
+            <form class="form">
                 <label for="name">Овог нэр</label>
                 <input type="text" id="name" name="name" pattern="[A-Za-zА-Яа-яӨөҮүЁё ]+" required>
                 
@@ -274,34 +300,34 @@
                 <fieldset>
                     <legend>Өнөөдөр хэр байна даа?</legend>
                     <div class="form-radio">
-                        <input type="radio" id="status1" name="status" value="good" required>
-                        <label for="status1" >Цоглог</label>
                         
-                        <input type="radio" id="status2" name="status" value="normal" required>
-                        <label for="status2">Яахав дээ л</label>
+                        <label for="status1" ><input type="radio" id="status1" name="status" value="good" required>Цоглог</label>
                         
-                        <input type="radio" id="status3" name="status" value="tired" required>
-                        <label for="status3">Залхуутай байна</label>
+                        
+                        <label for="status2"><input type="radio" id="status2" name="status" value="normal" required>Яахав дээ л</label>
+                        
+                        
+                        <label for="status3"><input type="radio" id="status3" name="status" value="tired" required>Залхуутай байна</label>
                     </div>
                 </fieldset>
                 <fieldset>
                     <legend>Аль улиралд дуртай вэ?</legend>
                     <div class="form-radio">
-                        <input type="checkbox" id="season1" name="season" value="summer">
-                        <label for="season1">Зун</label>
                         
-                        <input type="checkbox" id="season2" name="season" value="spring">
-                        <label for="season2">Хавар</label>
+                        <label for="season1"><input type="checkbox" id="season1" name="season" value="summer">Зун</label>
                         
-                        <input type="checkbox" id="season3" name="season" value="autumn">
-                        <label for="season3">Намар</label>
                         
-                        <input type="checkbox" id="season4" name="season" value="winter">
-                        <label for="season4">Өвөл</label>
+                        <label for="season2"><input type="checkbox" id="season2" name="season" value="spring">Хавар</label>
+                        
+                        
+                        <label for="season3"><input type="checkbox" id="season3" name="season" value="autumn">Намар</label>
+                        
+                        
+                        <label for="season4"><input type="checkbox" id="season4" name="season" value="winter">Өвөл</label>
                     </div>
                 </fieldset>
 
-                <button type="submit">Илгээх</button>
+                <button class="button" type="submit">Илгээх</button>
             </form>
         </section>
     </main>
@@ -312,11 +338,6 @@
             <a href="https://www.facebook.com/profile.php?id=61588449451426" target="_blank">Facebook</a>
         </div> 
     </footer>
-    <script>
-        function theme(){
-            const isDark = document.documentElement.classList.toggle("dark-mode")
-            document.getElementById("theme").innerText = isDark ? "Light mode" : "Dark mode";
-        }
-    </script>
+    <script src="./script.js"></script>
 </body>
 </html>
