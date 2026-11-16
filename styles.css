@@ -250,6 +250,7 @@ section{
 .learn-item{
     display: flex;
     align-items: center;
+    height: 3rem;
     gap: 10px;
     padding: 0 18px;
     border-bottom: 1px solid var(--color-border);
@@ -274,6 +275,25 @@ section{
     align-items: center;
     padding: 14px 0;
     cursor: pointer;
+    overflow: hidden;
+}
+.learn-update{
+     background-color: transparent;
+     color: var(--color-border);
+     border: none;
+}
+.learn-update:hover{
+    color: var(--color-accent);
+}
+.learn-edit{
+    flex: 1;
+    min-width: 0;
+    height: 2rem;
+    padding: 0 8px;
+    font: inherit;
+    color: var(--color-text);
+    border: 1px solid var(--color-accent);
+    border-radius: 0.4rem;
 }
 .learn-delete{
     background-color: transparent;
@@ -323,6 +343,12 @@ section{
   background-color: var(--color-icon);
   color: var(--color-accent);
 }
+
+#learn-list{
+    max-height: calc(3rem * 8);
+    overflow-y: auto;
+}
+
 /* experience section */
 .experience-container{
     display: flex;
