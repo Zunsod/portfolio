@@ -492,6 +492,156 @@ article{
     align-self: center;
     margin-left: 2rem;
 }
+#naruto{
+    margin-top: 4rem;
+}
+#naruto-form{
+    display: flex;
+    gap: 8px;
+    margin-top: 1rem;
+}
+#naruto-form label{
+    display: flex;
+    flex: 1;
+}
+#char-name{
+    flex: 1;
+    height: 44px;
+    padding: 0 14px;
+    box-sizing: border-box;
+    font: inherit;
+    color: var(--color-text);
+}
+#char-name:focus{
+    outline: none;
+    border-color: var(--color-accent);
+}
+#naruto-form button{
+    flex: none;
+    width: auto;          
+    padding: 0 22px;
+}
+#naruto-status{
+    color: var(--color-text-grey);
+    text-align: left;     
+}
+#naruto-list{
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 16px;
+}
+.char-card{
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    overflow: hidden;      
+}
+.char-card img{
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;  
+    object-fit: cover;
+    background-color: var(--color-bg-mute);
+}
+.char-img-none{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1 / 1;         
+    background-color: var(--color-bg-mute);
+    color: var(--color-text-grey);
+    font-size: 2rem;
+    font-weight: bold;
+}
+.char-body{
+    padding: 12px 16px;
+}
+.char-body h4{
+    margin: 0;
+}
+.char-body p{
+    margin: 4px 0 0;
+    font-size: 14px;
+    color: var(--color-text-grey);
+    text-align: left;
+}
+.char-tags{
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
+}
+.char-tag{
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 12px;
+    background-color: var(--color-text-bg-mute);
+    color: var(--color-text-carcoal);
+}
+.tag-eye{
+    background-color: #ffebe9;   
+    color: #a40e26;
+}
+.tag-beast{
+    background-color: #fff1e5;     
+    color: #953800;
+}
+.tag-dead{
+    background-color: var(--color-text-bg-mute);
+    color: var(--color-text-grey);
+}
+.state-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    min-height: 200px;
+    padding: 32px 24px;
+    box-sizing: border-box;
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    text-align: center;
+}
+.state-box p{
+    margin: 0;
+    text-align: center;              /* глобал justify-ийг дарна */
+}
+.state-title{
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--color-text);
+}
+.state-text{
+    max-width: 300px;
+    font-size: 14px;
+    color: var(--color-text-grey);
+}
+.state-error{
+    border-color: #ffcecb;
+    background-color: #fff8f7;
+}
+.state-error .state-title{
+    color: #cf222e;
+}
+.state-box .button{
+    margin-top: 10px;
+    width: auto;                     /* глобал .button өргөнийг дарна */
+    padding: 0.8rem 1.2rem;
+}
+.spinner{
+    width: 32px;
+    height: 32px;
+    margin-bottom: 6px;
+    border: 3px solid var(--color-border);
+    border-top-color: var(--color-accent);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+@keyframes spin{
+    to { transform: rotate(360deg); }
+}
 /* form section */
 .form{
     width: 60%;

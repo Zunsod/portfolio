@@ -123,6 +123,142 @@ function theme() {
   document.getElementById("theme").textContent = isDark ? "Light" : "Dark mode";
 }
 
+const API_URL = 'https://dattebayo-api.onrender.com/characters'
+const narutoForm = document.getElementById("naruto-form");
+const narutoInput = document.getElementById("char-name");
+const narutoStatus = document.getElementById("naruto-status");
+const narutoList = document.getElementById("naruto-list");
+const narutoState = document.getElementById("naruto-state")
+const icon_empty = `<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21a9 9 0 1 1 0 -18a9 9 0 0 1 0 18" /><path d="M15 14c-2 0 -3 1 -3.5 2.05" /><path d="M9 10h-.01" /><path d="M15 10h-.01" /></svg>`;
+async function fetchData(name){
+        showLoading();
+        try{
+            const url = `${API_URL}?name=${name}&limit=5`;
+            const response = await fetch(url);
+            if(!response.ok){
+                throw new Error(`API алдаа: ${response.status}`)
+            }
+            const data = await response.json();
+            if(data.characters.length === 0){
+                showEmpty(name);
+            }else{
+                showResults(data);
+            }
+        }catch(error){
+            console.error(error);
+            showError(error)
+        }
+}
+
+function characterCard(character){
+    const img = character.images[0];
+    const clan = getClan(character);
+    const rank = getRank(character);
+    return `<li class="char-card">
+                ${characterImage(character)}
+                <div class="char-body">
+                    <h4>${character.name}</h4>
+                    ${clan ? `<p>Clan: ${clan}</p>` : ""}
+                    ${rank ? `<p>Rank: ${rank}</p>` : ""}
+                    ${tagsHtml(character)}
+                </div>
+            </li>`
+}
+function getRank(character){
+    const rank = character.rank?.ninjaRank;
+    if (!rank) return null;
+    const ranks = Object.values(rank); 
+    return ranks[ranks.length - 1];
+}
+function getClan(character){
+    const clan = character.personal?.clan;
+    if (Array.isArray(clan)) return clan[0];
+    return clan || null
+}
+function getTags(character) {
+    const personal = character.personal || {};
+    const tags = [];
+    const beast = personal.tailedBeast;
+    if (beast) {
+        const name = beast.split(",")[0].replace("(Forms)", "").trim();
+        tags.push({ text: "Jinchuriki", type: "beast" });
+    }
+    const kekkei = personal.kekkeiGenkai;
+    if (Array.isArray(kekkei)) {
+        kekkei.slice(0, 3).forEach((k) => tags.push({ text: k, type: "eye" }));
+    } else if (kekkei) {
+        tags.push({ text: kekkei, type: "eye" });
+    }
+
+    return tags;
+}
+
+function tagsHtml(character) {
+    const tags = getTags(character);
+    if (tags.length === 0) return "";
+    return `<ul class="char-tags">
+                ${tags.map((t) => `<li class="char-tag tag-${t.type}">${t.text}</li>`).join("")}
+            </ul>`;
+}
+
+narutoForm.addEventListener("submit", (e)=>{
+    e.preventDefault();
+    const name = narutoInput.value.trim();
+    if(!name) return;
+    fetchData(name)
+})
+
+function stateBox({ title, text, type = "", icon = "", spinner = false }) {
+    return `
+        <div class="state-box ${type}">
+            ${icon ? `<span class="state-icon" aria-hidden="true">${icon}</span>` : ""}
+            ${spinner ? `<div class="spinner" aria-hidden="true"></div>` : ""}
+            <p class="state-title">${title}</p>
+            <p class="state-text">${text}</p>
+        </div>`;
+}
+
+function characterImage(character){
+    const image = character.images?.[0];
+    if (image) return `<img src="${image}" alt="${character.name}" loading="lazy">`;
+    return `<div class="char-img-none" aria-hidden="true">${getInitials(character.name)}</div>`;
+}
+function getInitials(name){
+    return name.split(" ").map((word) => word[0]).join("").slice(0, 2);
+}
+function showLoading() {
+    narutoStatus.textContent = "";
+    narutoList.innerHTML = "";
+    narutoState.innerHTML = stateBox({
+        title: "Ачаалж байна…",
+        text: "Дүрүүдийг хайж байна.",
+        spinner: true,
+    });
+}
+function showResults(data) {
+    narutoState.innerHTML = "";
+    narutoStatus.textContent = `${data.total} дүр олдлоо`;
+    narutoList.innerHTML = data.characters.map(characterCard).join("");
+}
+function showEmpty(name) {
+    narutoStatus.textContent = "";
+    narutoList.innerHTML = "";
+    narutoState.innerHTML = stateBox({
+        title: "Дүр олдсонгүй",
+        text: "Naruto анимэ-д байдаг дүрийн нэрийг бичээрэй",
+            icon: icon_empty,
+    });
+}
+function showError() {
+    narutoStatus.textContent = "";
+    narutoList.innerHTML = "";
+    narutoState.innerHTML = stateBox({
+        title: "Өгөгдөл авч чадсангүй",
+        text: "Интернэт холболтоо шалгаад дахин оролдоно уу.",
+        type: "state-error",
+    });
+}
+
 
 
 
